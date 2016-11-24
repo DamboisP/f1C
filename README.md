@@ -1,4 +1,4 @@
-<pre style="font: 6px/3px monospace;">                                                                                                                                                                                                        
+<pre style="font: 2px/1px monospace;">                                                                                                                                                                                                        
                                                                                                                                                                                                         
                                                                                                                                                                                                         
                                                                                                                                                                                                         
