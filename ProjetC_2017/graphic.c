@@ -31,7 +31,7 @@ char * 	voitures[][22] =	{{"0","34","70","170","Claude"},{"1","64","60","165","R
 int cmp(const void *x, const void *y)
 {
   double xx = *(double*)x, yy = *(double*)y;
-  if (xx < yy) return -1;
+  if (xx < yy || xx = 0) return -1;
   if (xx > yy) return  1;
   return 0;
 }
@@ -92,8 +92,12 @@ void printResults(int when){
 		}
 		if(when == 1){
 			printf("La seconde séance d'essais va commencer, appuyez sur ENTER pour continuer\n\n");
-		} else if (when == 2) {
+		} 
+		else if (when == 2) {
 			printf("La troisème séance d'essais va commencer, appuyez sur ENTER pour continuer\n\n");
+		}
+		else if (when == 3) {
+			printf("La première séance de qualifications va commencer, appuyez sur ENTER pour continuer\n\n");
 		}
 		carInfosShm[1].dayTime = 0;
 		
@@ -130,6 +134,9 @@ int main(int argc, char **argv){
 			race();
 		}
 		else if(carInfosShm[1].dayTime == 3){
+			race();
+		}
+		else if(carInfosShm[1].dayTime == 4){
 			race();
 		}
 		else{
