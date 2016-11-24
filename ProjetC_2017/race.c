@@ -35,7 +35,7 @@ char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Ro
 ,{"3","78","40","100","J-B"},{"4","98","80","210","Steak"}};
 	
 	//Creations de toutes les voitures, de l'interface et mise en place de la memoire partagee
-	for(i = 0;i<5;i++){
+	for(i = 0;i<22;i++){
 		carCmd[0]  = "./car";
 		carCmd[1]  = voitures[i][0];
 		carCmd[2]  = voitures[i][1];
@@ -61,7 +61,7 @@ char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Ro
 	}
 
 	//Demarrage de la course
-	for(i =0;i<5;i++){
+	for(i =0;i<22;i++){
 		carInfosShm[i].dayTime = 0;
 		carInfosShm[i].tempsRestant = 0;
 	}		
@@ -72,7 +72,7 @@ char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Ro
 	enter = 0;
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 
-	for(i =0;i<5;i++){
+	for(i =0;i<22;i++){
 		carInfosShm[i].nbTour = 0;
 		carInfosShm[i].distanceTotale = 0;
 		carInfosShm[i].tempsS1 = 0;
@@ -93,7 +93,7 @@ char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Ro
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 
 
-	for(i =0;i<5;i++){
+	for(i =0;i<22;i++){
 		carInfosShm[i].nbTour = 0;
 		carInfosShm[i].distanceTotale = 0;
 		carInfosShm[i].tempsS1 = 0;
@@ -109,6 +109,48 @@ char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Ro
 	while(carInfosShm[1].dayTime == 2 || carInfosShm[1].tempsRestant > 0){
 		sleep(1);
 	}
+	//Lancement des troisièmes essais
+	enter = 0;
+	while (enter != '\r' && enter != '\n') { enter = getchar(); }
+
+
+	for(i =0;i<22;i++){
+		carInfosShm[i].nbTour = 0;
+		carInfosShm[i].distanceTotale = 0;
+		carInfosShm[i].tempsS1 = 0;
+		carInfosShm[i].tempsS2 = 0;
+		carInfosShm[i].tempsS3 = 0;
+		carInfosShm[i].section = 0;
+		carInfosShm[i].tempsTourPrecedent = 0;
+		carInfosShm[i].tempsMeilleurTour = 0;
+		carInfosShm[i].tempsRestant = 5;
+		carInfosShm[i].dayTime = 3;
+	}
+
+	while(carInfosShm[1].dayTime == 3 || carInfosShm[1].tempsRestant > 0){
+		sleep(1);
+	}
+	//Qualification n°1
+	enter = 0;
+	while (enter != '\r' && enter != '\n') { enter = getchar(); }
+
+	for(i =0;i<22;i++){
+		carInfosShm[i].nbTour = 0;
+		carInfosShm[i].distanceTotale = 0;
+		carInfosShm[i].tempsS1 = 0;
+		carInfosShm[i].tempsS2 = 0;
+		carInfosShm[i].tempsS3 = 0;
+		carInfosShm[i].section = 0;
+		carInfosShm[i].tempsTourPrecedent = 0;
+		carInfosShm[i].tempsMeilleurTour = 0;
+		carInfosShm[i].tempsRestant = 5;
+		carInfosShm[i].dayTime = 4;
+	}
+
+	while(carInfosShm[1].dayTime == 4){
+		sleep(1);
+	}
+	
 	/*
 	sleep(4);
 

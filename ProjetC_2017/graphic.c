@@ -24,8 +24,8 @@ int j;
 int shmid;
 key_t key = 5678;
 struct carInfos* carInfosShm;
-double distanceArray[5];
-char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Roger"},{"2","69","70","180","Bernard"}
+double distanceArray[22];
+char * 	voitures[][22] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Roger"},{"2","69","70","180","Bernard"}
 ,{"3","78","40","100","J-B"},{"4","98","80","210","Steak"}};
 
 int cmp(const void *x, const void *y)
@@ -36,14 +36,14 @@ int cmp(const void *x, const void *y)
   return 0;
 }
 void race(){
-	for(i=0;i<5;i++){
+	for(i=0;i<22;i++){
 		if(carInfosShm[i].tempsMeilleurTour != 0){distanceArray[i] = carInfosShm[i].tempsMeilleurTour;}
 	}
 	 qsort(distanceArray, sizeof(distanceArray)/sizeof(distanceArray[0]), sizeof(distanceArray[0]), cmp);
 
 		system("clear");
-			for(i=0;i<5;i++){
-				for(j=0;j<5;j++){
+			for(i=0;i<22;i++){
+				for(j=0;j<22;j++){
 					if(carInfosShm[j].tempsMeilleurTour == distanceArray[i] && carInfosShm[j].tempsMeilleurTour != 0){
 						carInfosShm[j].carIdC = i;
 					}
@@ -52,7 +52,7 @@ void race(){
 		printf("Temps restant: %.2f\n\n",carInfosShm[1].tempsRestant);
 		printf("Nom		|Tours	|Temps S1	|Temps S2	|Temps S3	|Temps tour	|Temps meilleur tour	\n");
 		printf("------------------------------------------------------------------------------------------------------------------\n");
-		for(i =0;i<5;i++){
+		for(i =0;i<22;i++){
 			printf("%s		|",voitures[carInfosShm[i].carIdC][4]);
 			printf("%d	|",carInfosShm[carInfosShm[i].carIdC].nbTour);
 			printf("%.2f		|",carInfosShm[carInfosShm[i].carIdC].tempsS1);
@@ -62,7 +62,7 @@ void race(){
 			printf("%.2f 		\n",carInfosShm[carInfosShm[i].carIdC].tempsMeilleurTour);
 		}
 		printf("\n\nSECTION 1###SECTION 2###SECTION 3 \n\n");
-		for(i =0;i<5;i++){
+		for(i =0;i<22;i++){
 			if(carInfosShm[i].section == 0){
 				printf(" #%s#> \n",voitures[i][1]);
 			}
@@ -81,7 +81,7 @@ void printResults(int when){
 		printf("Classement general: \n\n",carInfosShm[1].tempsRestant);
 		printf("Nom		|Tours	|Temps S1	|Temps S2	|Temps S3	|Temps tour	|Temps meilleur tour	\n");
 		printf("------------------------------------------------------------------------------------------------------------------\n");
-		for(i =0;i<5;i++){
+		for(i =0;i<22;i++){
 			printf("%s		|",voitures[carInfosShm[i].carIdC][4]);
 			printf("%d	|",carInfosShm[carInfosShm[i].carIdC].nbTour);
 			printf("%.2f		|",carInfosShm[carInfosShm[i].carIdC].tempsS1);
@@ -92,6 +92,8 @@ void printResults(int when){
 		}
 		if(when == 1){
 			printf("La seconde séance d'essais va commencer, appuyez sur ENTER pour continuer\n\n");
+		} else if (when == 2) {
+			printf("La troisème séance d'essais va commencer, appuyez sur ENTER pour continuer\n\n");
 		}
 		carInfosShm[1].dayTime = 0;
 		
@@ -125,6 +127,9 @@ int main(int argc, char **argv){
 			race();
 		}
 		else if(carInfosShm[1].dayTime == 2){
+			race();
+		}
+		else if(carInfosShm[1].dayTime == 3){
 			race();
 		}
 		else{
