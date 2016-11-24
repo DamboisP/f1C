@@ -1,0 +1,3 @@
+La doc utile :)
+
+L'entier dayTime dans la structure carInfos permet de spécifier aux voitures lorsqu'une course démarre avec le temps de celle-ci (en minutes).

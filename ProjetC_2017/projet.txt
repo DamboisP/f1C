@@ -1,0 +1,29 @@
+Race:
+
+1:
+Instanciation d'un tableau de 22 voitures avec
+la classe voiture
+2:
+Circuit divisé en 3 secteurs de taille différente
+3:
+Position de base des voitures dans la grille
+
+--> (genre demander un input user à chaque
+évenement)
+
+
+4:Essai 
+Temps d'essais pour chaque secteur
+Afficher le classement à chaque séance
+Minimum 2-3 arret par séance
+==> 3 séances d'essais
+5:Qualifs
+Relever les temps des 3 secteurs à chaque passage
+pour chaque voiture
+-Classement des voitures àpd leur meilleur tour
+
+Voiture:
+1:
+Vitesse random àpd la taille du circuit
+Un numéro
+Nom
