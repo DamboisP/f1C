@@ -33,15 +33,16 @@ double speedToDistance(speed){
 }
 
 int main(int argc, char **argv){
+	
 	int i;
 	int shmid;
   key_t key = 5678;
 	struct carInfos* carInfosShm;
-	int carId = atoi(argv[1]);
-	int carNum = atoi(argv[2]);
-	int minSpeed = atoi(argv[3]);
-	int maxSpeed = atoi(argv[4]);
-	char *name = argv[5];
+	int carId = atoi(argv[0]);
+	int carNum = atoi(argv[1]);
+	int minSpeed = 70;
+	int maxSpeed = 250;
+	char *name = argv[2];
 	int randomSpeed;
 	double distance = 0;
 	int result;
@@ -65,12 +66,12 @@ int main(int argc, char **argv){
 
 	
 	while(carInfosShm[1].dayTime != 999){	
+	
 		if(carInfosShm[carId].tempsRestant != 0){
 			carInfosShm[carId].carIdC = carId;
 			randomSpeed = random_int(minSpeed,maxSpeed);
 			distance += speedToDistance(randomSpeed);
 			if(carInfosShm[carId].section == 0){
-
 				if(distance > section1){
 					carInfosShm[carId].section = 1;
 					carInfosShm[carId].distanceTotale += distance;
@@ -78,9 +79,7 @@ int main(int argc, char **argv){
 					carInfosShm[carId].tempsS1 = ((double)randomSpeed/60)/section1;
 				}
 			}
-
 			if(carInfosShm[carId].section == 1){
-
 					if(distance > section2){
 					carInfosShm[carId].section = 2;
 					carInfosShm[carId].distanceTotale += distance;
@@ -102,7 +101,8 @@ int main(int argc, char **argv){
 					}
 				}
 			}
-
+			
+printf("toast");//CEST ICI LE BUG FDP
 			carInfosShm[carId].tempsRestant -= 1;
 			sleep(2);
 		}

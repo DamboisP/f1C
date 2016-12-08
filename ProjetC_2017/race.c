@@ -26,13 +26,35 @@ int main(int argc, char **argv){
   int shmid;
   key_t key = 5678;
 	struct carInfos* carInfosShm;
-	char *carCmd[7];
+	char *carCmd[5];
 	char *graphicCmd [2] = {"./graphic",NULL};
 	char	enter = 0;
 
-	//Chaque pilote a un nom, un numero, une vitesse min et une vitesse max
-char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Roger"},{"2","69","70","180","Bernard"}
-,{"3","78","40","100","J-B"},{"4","98","80","210","Steak"}};
+	//Chaque pilote a un nom, un numero
+char * 	voitures[][22] =	{
+{"0","44","Claude"},
+{"1","6","Roger"},
+{"2","5","Bernard"},
+{"3","7","J-B"},
+{"4","3","Warwick"},
+{"5","33","Adolf"},
+{"6","19","Philippe"},
+{"7","77","Derek"},
+{"8","11","Joakim"},
+{"9","27","Raoul"},
+{"10","26","Fernando"},
+{"11","55","Jimmy"},
+{"12","14","Roberto"},
+{"13","22","Patrick"},
+{"14","9","Piercarlo"},
+{"15","12","Aldo"},
+{"16","20","Norberto"},
+{"17","30","Esteban"},
+{"18","8","Nyakwe"},
+{"19","21","Rudolf"},
+{"20","31","Niki"},
+{"21","94","Jacky"}
+};
 	
 	//Creations de toutes les voitures, de l'interface et mise en place de la memoire partagee
 	for(i = 0;i<22;i++){
@@ -40,9 +62,7 @@ char * 	voitures[][5] =	{{"0","34","70","170","Claude"},{"1","64","60","165","Ro
 		carCmd[1]  = voitures[i][0];
 		carCmd[2]  = voitures[i][1];
 		carCmd[3]  = voitures[i][2];
-		carCmd[4]  = voitures[i][3];
-		carCmd[5]  = voitures[i][4];
-		carCmd[6]  = NULL;
+		carCmd[4]  = NULL;
 		if(fork() == 0){
 			execvp(carCmd[0],carCmd);
 		}
