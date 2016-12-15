@@ -35,7 +35,6 @@ double distanceArray[22];
 {
      int int_a = * ( (int*) a );
      int int_b = * ( (int*) b );
-
      if ( int_a == int_b ) return 0;
      else if ( int_a < int_b ) return -1;
      else return 1;
@@ -123,20 +122,19 @@ int main(int argc, char **argv){
     return -1;
 	}
 	
-	system("clear");
+/bin/bash: indent : commande introuvable
 	printf("###################################\n");
 	printf("# Bienvenue au Grand-Prix de 2016 #\n");
 	printf("#       a Spa-Francorchamps       #\n");
 	printf("###################################\n");
 	printf("La première séance d'essais va commencer, appuyez sur ENTER pour continuer\n");
-	
+	printf("FDP: %d", carInfosShm[1].flagFin);	
 	while(carInfosShm[1].flagFin != 1){	
 		/*if(carInfosShm[1].dayTime != 0){
 			printResults(carInfosShm[1].dayTime);
 		}*/
 		printf("Nom: %s",carInfosShm[1].name);
 		if(carInfosShm[1].isRacing == 1){
-				printf("###################################\n");
 			race();
 		}
 		/*else if(carInfosShm[1].dayTime == 2){

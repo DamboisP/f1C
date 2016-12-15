@@ -77,7 +77,6 @@ char * 	voitures[][22] =	{
         printf("Erreur de shmget");
         return -1;
     }
-
 	if ((carInfosShm = shmat(shmid, NULL, 0)) ==  (struct carInfos*)-1) {
 		printf("Erreur de shmat");
     return -1;
@@ -92,7 +91,7 @@ char * 	voitures[][22] =	{
 	sleep(1);
 	
 	//Lancement des premiers essais
-
+	
 	enter = 0;
 	while (enter != '\r' && enter != '\n') { enter = getchar(); }
 	
@@ -113,8 +112,7 @@ char * 	voitures[][22] =	{
 	while(timeLeft > 0){
 		timeLeft -= 1;
 		sleep(1);
-	}
-	
+	}	
 	
 	/*
 	//Lancement des seconds essais
@@ -185,3 +183,4 @@ char * 	voitures[][22] =	{
 	
 	return 0;
 }
+

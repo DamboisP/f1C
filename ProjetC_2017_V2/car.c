@@ -40,11 +40,12 @@ int main(int argc, char **argv){
 	int shmid;
   key_t key = 5678;
 	struct carInfos* carInfosShm;
-	int carId = atoi(argv[0]);
-	int carNum = atoi(argv[1]);
+	int carId = atoi(argv[1]);
+	
+	int carNum = atoi(argv[2]);
 	int minSpeed = 70;
 	int maxSpeed = 250;
-	char * name = argv[2];
+	char * name = argv[3];
 	int randomSpeed;
 	double distance = 0;
 	int result;
@@ -66,10 +67,8 @@ int main(int argc, char **argv){
 	}
 	carInfosShm[carId].carIdC = carId;
 	carInfosShm[carId].name = name;
-
-	
-	while(carInfosShm[carId].flagFin != 1){	
-	
+	carInfosShm[carId].flagFin = 0;	
+	while(carInfosShm[carId].flagFin != 1){		
 		if(carInfosShm[carId].isRacing == 1){
 			carInfosShm[carId].carIdC = carId;
 			randomSpeed = random_int(minSpeed,maxSpeed);
@@ -102,7 +101,7 @@ int main(int argc, char **argv){
 					if(carInfosShm[carId].tempsTourPrecedent < carInfosShm[carId].tempsMeilleurTour || carInfosShm[carId].tempsMeilleurTour == 0 ){
 						carInfosShm[carId].tempsMeilleurTour = carInfosShm[carId].tempsTourPrecedent;
 					}
-				}
+				}HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2HA2
 			}
 			
 			sleep(2);
